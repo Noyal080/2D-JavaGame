@@ -1,3 +1,6 @@
+//call game screen here this may contain the loading screen as well
+
+
 package com.mygdx.game.model;
 
 import com.badlogic.gdx.math.Rectangle;
