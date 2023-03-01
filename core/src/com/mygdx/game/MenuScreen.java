@@ -3,13 +3,18 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -44,14 +49,15 @@ public class MenuScreen extends ScreenAdapter {
 
         stage.addActor(mainTable);
 
-        TextButton play = new TextButton("Play",skin);
-        mainTable.add(play).width(120).padBottom(10);
+        Texture myTexture = new Texture(Gdx.files.internal("demo/forscreen/spritesheetfrontscreen.png"));
+        TextureRegion myTextureRegion = new TextureRegion(myTexture);
+        TextureRegionDrawable myTexRegionDrawable = new TextureRegionDrawable(myTextureRegion);
+        Button play = new ImageButton(myTexRegionDrawable); //Set the button up
+
+        mainTable.setBackground(new TextureRegionDrawable(new TextureRegion(new Texture("demo/forscreen/spritesheetfrontscreen.gif"))));
         mainTable.row();
-        mainTable.add(new TextButton("Options",skin)).fillX().padBottom(10);
-        mainTable.row();
-        mainTable.add(new TextButton("Credits",skin)).fillX().padBottom(10);
-        mainTable.row();
-        mainTable.add(new TextButton("Exit",skin)).fillX().padBottom(10);
+        mainTable.add(play).padTop(400);
+
 
 
         play.addListener(new ClickListener(){
@@ -68,14 +74,6 @@ public class MenuScreen extends ScreenAdapter {
 
 
     }
-
-//    private TextButton addButton(String name){
-//        //we can add skin but we wiill skip that
-//        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-//        TextButton button = new TextButton(name, textButtonStyle );
-//        mainTable.add(button);
-//        return button;
-//}
 
 
     @Override

@@ -5,11 +5,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 public class MyGdxGame extends Game {
-
-	//private World world;
-//	public static final String VERSION = "0.03";
-//	public static final int FPS =60;
-
 	public static MyGdxGame INSTANCE;
 	private int screenHeight, screenWidth;
 	private OrthographicCamera orthographicCamera;
