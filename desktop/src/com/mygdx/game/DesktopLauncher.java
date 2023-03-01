@@ -1,5 +1,11 @@
 package com.mygdx.game;
 
+import static com.mygdx.game.MyGdxGame.APP_HEIGHT;
+import static com.mygdx.game.MyGdxGame.APP_TITLE;
+import static com.mygdx.game.MyGdxGame.APP_WIDTH;
+import static com.mygdx.game.MyGdxGame.FOREGROUND_FPS;
+import static com.mygdx.game.MyGdxGame.IDLE_FPS;
+
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.mygdx.game.MyGdxGame;
@@ -10,11 +16,11 @@ import java.awt.FlowLayout;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-		config.setForegroundFPS(60);
-		config.setIdleFPS(60);
+		config.setTitle(APP_TITLE);
+		config.setForegroundFPS(FOREGROUND_FPS);
+		config.setIdleFPS(IDLE_FPS);
 		config.useVsync(true);
-		config.setWindowedMode(1280,720);
-		config.setTitle("Journey Through Pages");
+		config.setWindowedMode(APP_WIDTH,APP_HEIGHT);
 
 		new Lwjgl3Application(new MyGdxGame(), config);
 	}
