@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -27,7 +26,6 @@ public class MenuScreen extends ScreenAdapter {
     //Displaying everything properly on different resolutions
     private Viewport viewport;
 
-    Skin skin;
 
     private Table mainTable;
 
@@ -35,7 +33,6 @@ public class MenuScreen extends ScreenAdapter {
 
     public MenuScreen(MyGdxGame game) {
         this.game = game;
-        skin = new Skin(Gdx.files.internal("uiskin.json"));
 
     }
 
