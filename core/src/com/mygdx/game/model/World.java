@@ -29,7 +29,7 @@ public class World {
     private static Array<Actor> objectToRemove = new Array<Actor>();
 
     public World() {
-        reset();
+
     }
     public WorldRenderer getRenderer()
     {

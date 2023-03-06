@@ -57,7 +57,7 @@ public class MenuScreen extends ScreenAdapter {
         play.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                System.out.println("play clicked");
+                System.out.println("Game started");
                 game.setScreen(new GameScreen(game));
             }
         });

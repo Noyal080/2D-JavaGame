@@ -30,14 +30,20 @@ public class MovingPlayer extends Actor {
     protected Vector2 postion , velocity;
     protected boolean dead;
     protected boolean moving;
+    protected int health;
     protected World world;
     protected State state = State.Standing;
+    protected Direction direction;
+    protected boolean facesRight =true;
+
+    protected boolean grounded = false;
 
     public MovingPlayer(World world, float x, float y, float max_velocity)
     {
         this.world = world;
         this.setPosition(x,y);
         this.max_velocity = max_velocity;
+        velocity = new Vector2(0,0);
         dead= false;
         moving = false;
 
@@ -53,6 +59,22 @@ public class MovingPlayer extends Actor {
     }
     protected Rectangle rectangle() {
         return new Rectangle(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+    }
+    public void move(Direction dir) {
+        if(state != State.Dying && moving) {
+            if(dir == Direction.LEFT) {
+                velocity.x = -max_velocity;
+                facesRight = false;
+            }
+            else {
+                velocity.x = max_velocity;
+                facesRight = true;
+            }
+            direction = dir;
+            if (grounded) {
+                state = MovingPlayer.State.Walking;
+            }
+        }
     }
 
 
