@@ -105,5 +105,5 @@ public class GameScreen extends ScreenAdapter {
 //    public void setPlayer(Player player){
 
 //        this.player= player;
-    }
-//    }
+//     }
+   }
