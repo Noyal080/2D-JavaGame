@@ -9,8 +9,6 @@ public class MyGdxGame extends Game {
 
 	private World world;
 	public static MyGdxGame INSTANCE;
-	private int screenHeight, screenWidth;
-	private OrthographicCamera orthographicCamera;
 
 
 	public MyGdxGame(){
@@ -18,15 +16,7 @@ public class MyGdxGame extends Game {
 	}
 	@Override
 	public void create() {
-		this.screenWidth= Gdx.graphics.getWidth() ;
-		this.screenHeight=Gdx.graphics.getHeight();
-		this.orthographicCamera= new OrthographicCamera();
-		this.orthographicCamera.setToOrtho(false,screenWidth,screenHeight);
-
-
-
-
-		setScreen(new GameScreen(orthographicCamera));
+		setScreen(new MenuScreen(this));
 	}
 
 

@@ -22,7 +22,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import javax.swing.text.Position;
 
 import helper.TileMapHelper;
-import object.player.Player;
+//import object.player.Player;
 
 
 public class GameScreen extends ScreenAdapter {
@@ -40,7 +40,7 @@ public class GameScreen extends ScreenAdapter {
     private TileMapHelper tileMapHelper;
 
     //game object
-    private Player player;
+//    private Player player;
     public GameScreen(OrthographicCamera camera){
         this.camera = camera;
         this.batch =new SpriteBatch();
@@ -60,7 +60,7 @@ public class GameScreen extends ScreenAdapter {
         cameraUpdate();
         batch.setProjectionMatrix(camera.combined);
         orthogonalTiledMapRenderer.setView(camera); //pass camera
-        player.update();
+//        player.update();
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)){
             Gdx.app.exit();
         }
@@ -102,8 +102,8 @@ public class GameScreen extends ScreenAdapter {
 
     //for player
 
-    public void setPlayer(Player player){
+//    public void setPlayer(Player player){
 
-        this.player= player;
+//        this.player= player;
     }
-    }
+//    }
