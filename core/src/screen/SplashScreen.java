@@ -58,6 +58,8 @@ public class SplashScreen implements Screen {
                 game.setScreen(new GameScreen(orthographicCamera));
             }
         });
+
+        Gdx.input.setInputProcessor(splashstage);
     }
 
     @Override
