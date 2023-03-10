@@ -19,5 +19,8 @@ public class MyGdxGame extends Game {
 		setScreen(new TitleScreen(this));
 	}
 
-
+ 	@Override
+	public void render(){
+		super.render();
+	}
 }

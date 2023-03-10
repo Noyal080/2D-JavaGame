@@ -48,30 +48,50 @@ public class SplashScreen implements Screen {
         splashstage = new Stage(new FitViewport(screenWidth,screenHeight,new OrthographicCamera(screenWidth,screenHeight)));
         splashstage.addActor(splashimage);
 
-        splashimage.addAction(Actions.sequence(Actions.alpha(0.0F), Actions.fadeIn(1.25F),Actions.delay(1F), Actions.fadeOut(0.75F)));
+        splashimage.addAction(Actions.sequence(Actions.alpha(0.0F), Actions.fadeIn(1.2F),Actions.delay(1F), Actions.fadeOut(0.75F)));
 
-        splashimage.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                System.out.println("play clicked");
 
-                game.setScreen(new GameScreen(orthographicCamera));
-            }
-        });
+        //sumiway
+//        splashimage.addListener(new ClickListener(){
+//            @Override
+//            public void clicked(InputEvent event, float x, float y) {
+//                System.out.println("play clicked");
+//
+//                game.setScreen(new GameScreen(orthographicCamera));
+//            }
+//        });
+//
+//        Gdx.input.setInputProcessor(splashstage);
 
-        Gdx.input.setInputProcessor(splashstage);
+
     }
 
     @Override
     public void render(float delta) {
+
+        handleInput();
         //Clearing Screen
         Gdx.gl.glClearColor(.1f,.1f,.15f,1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+
 
         //Register button clicks, move actors around, animations etc.
         splashstage.act();
 
         splashstage.draw();
+
+
+
+
+
+    }
+
+    private void handleInput(){
+        if(Gdx.input.justTouched()){
+            System.out.println("clicked");
+            game.setScreen(new GameScreen(orthographicCamera));
+        }
     }
 
     @Override
