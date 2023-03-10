@@ -1,4 +1,4 @@
-package com.mygdx.game;
+package screen;
 
 import static helper.Constants.PPM;
 
@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 
 import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -18,6 +19,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.mygdx.game.MyGdxGame;
+
+import java.awt.Dialog;
 
 import javax.swing.text.Position;
 
@@ -25,26 +31,22 @@ import helper.TileMapHelper;
 import object.player.Player;
 import object.player.Player;
 
-
 public class GameScreen extends ScreenAdapter {
     MyGdxGame game;
-
-
     private OrthographicCamera camera;
     private SpriteBatch batch;
     private World world;
     private Box2DDebugRenderer box2DDebugRenderer;
 
-    public GameScreen(MyGdxGame game) {this.game = game;    }
 
+    public GameScreen(MyGdxGame game) {this.game = game;    }
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer ;
     private TileMapHelper tileMapHelper;
-
     //game object
     public Player player;
-
     public GameScreen(OrthographicCamera camera){
         this.camera = camera;
+
         this.batch =new SpriteBatch();
         this.world= new World(new Vector2(0,-25f),false);
         this.box2DDebugRenderer = new Box2DDebugRenderer();
@@ -54,6 +56,7 @@ public class GameScreen extends ScreenAdapter {
         this.orthogonalTiledMapRenderer= tileMapHelper.setupMap();
 
     }
+
 
 
 

@@ -1,10 +1,10 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.mygdx.game.model.World;
+
+import screen.TitleScreen;
+
 public class MyGdxGame extends Game {
 
 	private World world;
@@ -16,17 +16,8 @@ public class MyGdxGame extends Game {
 	}
 	@Override
 	public void create() {
-		setScreen(new MenuScreen(this));
+		setScreen(new TitleScreen(this));
 	}
 
 
-
-	//public void dispose() {}
-
-
-
-//	public void render()
-//	{
-//		world.update();
-//	}
 }

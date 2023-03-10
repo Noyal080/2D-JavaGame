@@ -1,6 +1,7 @@
-package com.mygdx.game;
+package screen;
         import com.badlogic.gdx.Gdx;
         import com.badlogic.gdx.ScreenAdapter;
+        import com.badlogic.gdx.graphics.Camera;
         import com.badlogic.gdx.graphics.GL20;
         import com.badlogic.gdx.graphics.OrthographicCamera;
         import com.badlogic.gdx.graphics.Texture;
@@ -14,6 +15,7 @@ package com.mygdx.game;
         import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
         import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
         import com.badlogic.gdx.utils.viewport.FitViewport;
+        import com.mygdx.game.MyGdxGame;
 
 public class TitleScreen extends ScreenAdapter {
     MyGdxGame game;
@@ -75,7 +77,8 @@ public class TitleScreen extends ScreenAdapter {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 System.out.println("play clicked");
-                game.setScreen(new GameScreen(orthographicCamera));
+
+                game.setScreen(new SplashScreen());
             }
         });
         //Gdx listen to stage
