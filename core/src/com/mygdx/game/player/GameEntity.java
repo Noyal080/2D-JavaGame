@@ -1,10 +1,14 @@
-package object.player;
+package com.mygdx.game.player;
 
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
 public abstract class GameEntity {
+
+    //movement velocity
     protected float x, y, velX, velY,speed;
     protected float height,width;
     protected Body body;
@@ -14,15 +18,24 @@ public abstract class GameEntity {
         this.y= body.getPosition().y;
         this.width=width;
         this.height=height;
+        this.body=body;
         this.velX=0;
         this.velY=0;
         this.speed=0;
 
     }
-    public abstract void update();
+
+    public GameEntity(Sprite sprite) {
+
+    }
+
+    public abstract void update(float deltaTime);
     public abstract void render(SpriteBatch batch); //passing our spritebatch
 
     public Body getBody(){
         return body;
+    }
+
+    protected void draw(SpriteBatch spriteBatch) {
     }
 }

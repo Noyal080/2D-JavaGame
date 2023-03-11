@@ -1,5 +1,4 @@
-package helper;
-import static helper.Constants.PPM;
+package com.mygdx.game.helper;
 
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapObjects;
@@ -14,11 +13,11 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
-import screen.GameScreen;
+import com.mygdx.game.screen.GameScreen;
 
 public class TileMapHelper  {
-    private TiledMap tiledMap;
-    private GameScreen gameScreen;
+    public TiledMap tiledMap;
+    private final GameScreen gameScreen;
     public TileMapHelper(GameScreen gameScreen){
         this.gameScreen=gameScreen;
     }
@@ -26,8 +25,8 @@ public class TileMapHelper  {
         tiledMap= new TmxMapLoader().load("asset/map/tilemap.tmx");
         parseMapObjects(tiledMap.getLayers().get("Objects").getObjects());
         return new OrthogonalTiledMapRenderer(tiledMap);
-    }
 
+    }
     private void parseMapObjects(MapObjects mapObjects){
         for (MapObject mapObject :mapObjects){
             if (mapObject instanceof PolygonMapObject){          //for other obj
@@ -46,7 +45,7 @@ public class TileMapHelper  {
                             false,
                             gameScreen.getWorld());
 
-//                    gameScreen.setPlayer(new Player(rectangle.getWidth(), rectangle.getHeight(),body));
+                 //gameScreen.setPlayer(new Player(rectangle.getWidth(), rectangle.getHeight(),body));
                 }
             }
         }
@@ -65,8 +64,8 @@ public class TileMapHelper  {
         float[] vertices= polygonMapObject.getPolygon().getTransformedVertices();
         Vector2[] worldVertices =new Vector2[vertices.length/2];
 
-        for (int i = 0; i < vertices.length/2; i++){
-            Vector2 current = new Vector2(vertices[i * 2]/PPM, vertices[i * 2 + 1]/PPM);  //PPM define pixel per meter. so we have new current vertices in x and y position.divide is done to match with box 2d world
+        for (int i = 0; i < vertices.length / 2; i++){
+            Vector2 current = new Vector2(vertices[i * 2]/ Constants.PPM, vertices[(i * 2) + 1]/ Constants.PPM);  //PPM define pixel per meter. so we have new current vertices in x and y position.divide is done to match with box 2d world
             worldVertices[i]=current;
         }
 
@@ -75,4 +74,5 @@ public class TileMapHelper  {
         return shape;
 
     }
+
 }
